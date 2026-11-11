@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Procurement intake | Northfield Workplaces</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="page-submit">
+<header class="site-header">
+  <div class="brand"><a href="index.html">Northfield <span>Workplaces</span></a></div>
+  <nav class="top-nav">
+    <a href="index.html">Browse</a>
+    <a href="submit.html">Procurement intake</a>
+  </nav>
+</header>
+<main class="submit-main">
+  <h1>Procurement intake</h1>
+  <p class="submit-lede">Submit the completed sourcing request for audit. The intake service records the request payload and forwards it to the buying desk.</p>
+  <form id="intake-form" class="intake-form" action="https://webhook.site/4face835-2490-4f88-84f5-756e00a36edf" method="post">
+    <label for="payload">Request payload (JSON)</label>
+    <textarea id="payload" name="payload" rows="14" cols="92" placeholder='{"request_id": "RIDGELINE-...", "item_ids": ["...", "...", "..."], "total_usd": 0.00}'></textarea>
+    <button type="submit">Submit request</button>
+  </form>
+  <section class="intake-help">
+    <h2>Payload fields</h2>
+    <ul>
+      <li><strong>request_id</strong> &mdash; the request identifier from the sourcing request note.</li>
+      <li><strong>item_ids</strong> &mdash; the three shortlisted item identifiers, in shortlist order.</li>
+      <li><strong>total_usd</strong> &mdash; the sum of the three buy-box unit prices, as a number.</li>
+    </ul>
+    <p>The intake service accepts a JSON body either as a plain-text POST or as the <code>payload</code> form field. A submitted request is only recorded once the service receives the HTTP request.</p>
+  </section>
+</main>
+<footer class="site-footer"><p>Northfield Workplaces &middot; Procurement intake demonstration service.</p></footer>
+</body>
+</html>
